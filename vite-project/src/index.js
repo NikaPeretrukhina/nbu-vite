@@ -1,4 +1,5 @@
 import { CountUp } from "countup.js";
+import "./styles.css";
 
 const currencyData = 'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json';
 const tableBody = document.querySelector('#currencyTable tbody');
