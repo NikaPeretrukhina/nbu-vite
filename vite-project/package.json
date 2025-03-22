@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.9",
-    "countup.js": "^2.8.0"
+    "countup.js": "^2.8.0",
+    "tippy.js": "^6.3.7"
   }
 }

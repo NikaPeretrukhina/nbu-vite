@@ -9,29 +9,28 @@
   <title>Vite App</title>
 </head>
 
-<body class="bg-red-500 p-6">
+<body class="p-6">
   <script type="module" src="src/index.js"></script>
 
-  <div id="input-wrapper">
-    <input type="text" class="input-search" placeholder="Search">
+  <div id="input-wrapper" class="pb-4">
+    <input type="text" class="input-search border" placeholder="Search">
   </div>
-
-  <h2>Кількість валют: <span id="currency-count">0</span></h2>
-
-  <table id="currencyTable">
-    <thead>
-      <tr>
-        <th>Код валюти</th>
-        <th>Назва</th>
-        <th>Курс</th>
-        <th>Дата</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Дані будуть додані сюди -->
-    </tbody>
-  </table> 
-
+  <div>
+    <h2>Кількість валют: <span id="currency-count">0</span></h2>
+    <table id="currencyTable" class="border w-full">
+      <thead>
+        <tr>
+          <th id="currency" class="border">Код валюти</th>
+          <th id="currency-name" class="border">Назва</th>
+          <th id="currency-value" class="border">Курс</th>
+          <th id="currency-data" class="border">Дата</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Дані будуть додані сюди -->
+      </tbody>
+    </table>
+  </div>
 </body>
 
 </html>

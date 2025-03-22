@@ -1,5 +1,6 @@
 import { CountUp } from "countup.js";
 import "./styles.css";
+import tippy from 'tippy.js';
 
 const currencyData = 'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json';
 const tableBody = document.querySelector('#currencyTable tbody');
@@ -15,10 +16,10 @@ function renderCurrencyTable(data){
     data.forEach(currency=>{
         const row = document.createElement('tr');
         row.innerHTML = `
-        <td>${currency.cc}</td>
-        <td>${currency.txt}</td>
-        <td>${currency.rate.toFixed(2)}</td>
-        <td>${currency.exchangedate}</td>
+        <td class="border">${currency.cc}</td>
+        <td class="border">${currency.txt}</td>
+        <td class="border">${currency.rate.toFixed(2)}</td>
+        <td class="border">${currency.exchangedate}</td>
         `;
         tableBody.appendChild(row);
     });
@@ -68,3 +69,19 @@ function filterTable(){
 }
 inputValue.addEventListener("input", filterTable);
 loadCurrencyData();
+tippy('#currency', {
+    content: 'Currency!',
+    theme: 'tomato',
+  });
+tippy('#currency-name', {
+    content: 'Name!',
+    theme: 'tomato',
+  });
+tippy('#currency-value', {
+    content: 'Value!',
+    theme: 'tomato',
+  });
+tippy('#currency-data', {
+    content: 'Data!',
+    theme: 'tomato',
+  });
