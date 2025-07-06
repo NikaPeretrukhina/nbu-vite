@@ -10,7 +10,7 @@ const counterElement = document.getElementById("currency-count");
 
 let data = [];
 
-function renderCurrencyTable(data){
+function renderCurrencyTable(animateCounterFn, data, tableBody){
     tableBody.innerHTML = "";
 
     data.forEach(currency=>{
@@ -25,7 +25,7 @@ function renderCurrencyTable(data){
     });
 
     // Оновлюємо лічильник кількості валют
-    animateCounter(data.length);
+    animateCounterFn(data.length);
 }
 
 function animateCounter(newValue){
@@ -46,9 +46,8 @@ async function loadCurrencyData() {
             throw new Error(`Error: ${response.status} `);
         }
         
-        
         data = await response.json();
-        renderCurrencyTable(data);
+        renderCurrencyTable(animateCounter, data, tableBody);
 
     }catch(error){
         console.log(errorText, error.message);
@@ -56,19 +55,19 @@ async function loadCurrencyData() {
     }
 }
 
-function filterTable(){
-    const searchText =inputValue.value.trim().toLowerCase();
+
+inputValue.addEventListener("input", () => {
+    const searchText = inputValue.value.trim().toLowerCase();
 
     let filtered = data.filter(currency=>
         currency.cc.toLowerCase().includes(searchText) ||
         currency.txt.toLowerCase().includes(searchText)
     );
    
-    renderCurrencyTable(filtered);
-
-}
-inputValue.addEventListener("input", filterTable);
+    renderCurrencyTable(animateCounter, filtered, tableBody);
+});
 loadCurrencyData();
+
 tippy('#currency', {
     content: 'Currency!',
     theme: 'tomato',
