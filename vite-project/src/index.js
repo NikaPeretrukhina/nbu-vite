@@ -7,7 +7,7 @@ import { initTooltips } from "./utils/TooltipInit.js";
 
 
 (async () => {
-  let data = await loadCurrencyData(currencyAPIUrl, renderCurrencyTable);
+  let data = await loadCurrencyData(currencyAPIUrl, renderCurrencyTable, tableBody);
   
   inputValue.addEventListener("input", () => {
       const searchText = inputValue.value.trim().toLowerCase();
