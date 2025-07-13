@@ -1,19 +1,13 @@
 import { errorText } from "../constants.js";
-import {animateCounter} from "./AnimateCounter.js";
 
-
-export async function loadCurrencyData(currencyAPIUrl, renderCurrencyTableFn, tableBody) {
+export async function loadCurrencyData(currencyAPIUrl) {
     try {
         const response = await fetch(currencyAPIUrl);
         if (!response.ok) {
             throw new Error(`Error: ${response.status} `);
         }
-        
-        let data = await response.json();
-        renderCurrencyTableFn(animateCounter, data, tableBody);
-        return data;
+        return await response.json();
     }catch(error){
         console.log(errorText, error.message);
-        
     }
 }

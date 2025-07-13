@@ -12,25 +12,37 @@
 <body class="p-6">
   <script type="module" src="src/index.js"></script>
 
-  <div id="input-wrapper" class="pb-4">
-    <input type="text" class="input-search border" placeholder="Search">
+  <div id="btn-box" class="flex gap-3 justify-center items-center h-screen">
+    <button id="table-btn">Таблиця</button>
+    <button id="text-btn">Простий текст</button>
   </div>
-  <div>
-    <h2>Кількість валют: <span id="currency-count">0</span></h2>
-    <table id="currencyTable" class="border w-full">
-      <thead>
-        <tr>
-          <th id="currency" class="border">Код валюти</th>
-          <th id="currency-name" class="border">Назва</th>
-          <th id="currency-value" class="border">Курс</th>
-          <th id="currency-data" class="border">Дата</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Дані будуть додані сюди -->
-      </tbody>
-    </table>
+
+  <div id="input-wrapper" class="pb-4 hidden">
+    <input type="text" id="input-search" class="border" placeholder="Search">
   </div>
+
+  <section>
+    <div id="text-box" class="hidden"><!-- Текст буде доданий сюди --></div>
+    <div id="table-box" class="hidden">
+      <div>
+        <h2>Кількість валют: <span id="currency-count">0</span></h2>
+        <table id="currencyTable" class="border w-full">
+          <thead>
+            <tr>
+              <th id="currency" class="border">Код валюти</th>
+              <th id="currency-name" class="border">Назва</th>
+              <th id="currency-value" class="border">Курс</th>
+              <th id="currency-data" class="border">Дата</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Дані будуть додані сюди -->
+          </tbody>
+          
+        </table>
+      </div>
+    </div>
+  </section>
 </body>
 
 </html>
