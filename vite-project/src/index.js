@@ -8,37 +8,29 @@ import { initTooltips } from "./utils/TooltipInit.js";
 
 let data = await loadCurrencyData(currencyAPIUrl);
 
-textBtn.addEventListener("click", () => {
-  renderCurrencyText(animateCounter, data, textBox);
-
+function setUpSearchInput(data, renderFn) {
   inputBox.classList.remove("hidden");
   btnBox.classList.add("hidden");
 
   inputValue.addEventListener("input", () => {
     const searchText = inputValue.value.trim().toLowerCase();
 
-    let filtered = data.filter(currency =>
-      currency.cc.toLowerCase().includes(searchText) ||
-      currency.txt.toLowerCase().includes(searchText)
+    const filtered = data.filter(currency =>
+    currency.cc.toLowerCase().includes(searchText) ||
+    currency.txt.toLowerCase().includes(searchText)
     );
-    renderCurrencyText(animateCounter, filtered, textBox);
+    renderFn(filtered);
   });
+}
+
+textBtn.addEventListener("click", () => {
+  renderCurrencyText(animateCounter, data, textBox);
+  setUpSearchInput(data, (filtered) => renderCurrencyText(animateCounter, filtered, textBox));
 })
 
 tableBtn.addEventListener("click", () => {
   renderCurrencyTable(animateCounter, data, tableBody, tableBox);
-  inputBox.classList.remove("hidden");
-  btnBox.classList.add("hidden");
-
-  inputValue.addEventListener("input", () => {
-    const searchText = inputValue.value.trim().toLowerCase();
-
-    let filtered = data.filter(currency =>
-      currency.cc.toLowerCase().includes(searchText) ||
-      currency.txt.toLowerCase().includes(searchText)
-    );
-    renderCurrencyTable(animateCounter, filtered, tableBody);
-  });
+  setUpSearchInput(data, (filtered) => renderCurrencyTable(animateCounter, filtered, tableBody, tableBox));
 
   initTooltips();
 });

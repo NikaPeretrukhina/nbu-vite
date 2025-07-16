@@ -25,8 +25,8 @@ export function renderCurrencyText(animateCounterFn, data, textBox){
         
         const text = document.createElement('p');
         text.innerHTML = `
-        <p>${currency.cc},${currency.txt},
-        ${currency.rate.toFixed(2)},
+        <p>${currency.cc}, ${currency.txt},
+        ${currency.rate.toFixed(2)}, 
         ${currency.exchangedate}
         </p>`;
 
