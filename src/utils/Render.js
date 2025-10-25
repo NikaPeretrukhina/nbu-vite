@@ -1,8 +1,15 @@
-export function renderCurrencyTable(animateCounterFn, data, tableBody, tableBox){
+export function renderCurrencyTable(animateCounterFn, data, tableHead, tableBody, tableBox){
+    const headRow = document.createElement('tr');
+    headRow.innerHTML = `<th id="currency" class="border">Код валюти</th>
+    <th id="currency-name" class="border">Назва</th>
+    <th id="currency-value" class="border">Курс</th>
+    <th id="currency-data" class="border">Дата</th>`;
+    tableHead.appendChild(headRow);
+
     tableBody.innerHTML = "";
     tableBox.classList.remove("hidden");
     data.forEach(currency=>{
-        
+
         const row = document.createElement('tr');
         row.innerHTML = `
         <td class="border">${currency.cc}</td>

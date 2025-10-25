@@ -1,6 +1,6 @@
 import { errorText } from "../constants.js";
 
-export async function loadCurrencyData(currencyAPIUrl) {
+export async function fetchJSON(currencyAPIUrl, userError) {
     try {
         const response = await fetch(currencyAPIUrl);
         if (!response.ok) {
@@ -8,6 +8,7 @@ export async function loadCurrencyData(currencyAPIUrl) {
         }
         return await response.json();
     }catch(error){
+        userError.innerHTML = `<p>Сталася помилка: ${error.message}</p>`;
         console.log(errorText, error.message);
     }
 }

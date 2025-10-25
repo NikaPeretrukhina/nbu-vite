@@ -1,5 +1,0 @@
-@import "tailwindcss";
-.tippy-box[data-theme~='tomato'] {
-    background-color: tomato;
-    color: yellow;
-  }

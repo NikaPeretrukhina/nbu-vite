@@ -1,12 +1,12 @@
 import "./styles.css";
-import { currencyAPIUrl, inputValue, tableBody, tableBtn, tableBox, btnBox, inputBox, textBtn, textBox } from "./constants.js";
+import { currencyAPIUrl, inputValue, tableBody, tableBtn, tableBox, btnBox, inputBox, textBtn, textBox, tableHead, userError } from "./constants.js";
 import { renderCurrencyTable } from "./utils/Render.js";
 import { renderCurrencyText } from "./utils/Render.js";
 import { animateCounter } from "./utils/AnimateCounter.js";
-import { loadCurrencyData } from "./utils/APILoad.js";
+import { fetchJSON } from "./utils/APILoad.js";
 import { initTooltips } from "./utils/TooltipInit.js";
 
-let data = await loadCurrencyData(currencyAPIUrl);
+let data = await fetchJSON(currencyAPIUrl, userError) || [];//подивитись як зробити так щоб була показана тіки помилка а не хтмл і помилка
 
 function setUpSearchInput(data, renderFn) {
   inputBox.classList.remove("hidden");
@@ -29,7 +29,7 @@ textBtn.addEventListener("click", () => {
 })
 
 tableBtn.addEventListener("click", () => {
-  renderCurrencyTable(animateCounter, data, tableBody, tableBox);
+  renderCurrencyTable(animateCounter, data, tableHead, tableBody, tableBox);
   setUpSearchInput(data, (filtered) => renderCurrencyTable(animateCounter, filtered, tableBody, tableBox));
 
   initTooltips();
