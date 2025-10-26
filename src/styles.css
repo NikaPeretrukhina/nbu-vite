@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* 
+знайти рішення */
+@theme{
+  --color-greenlight: #BFFFED;
+  --color-midnight: #121063;
+} 
+  
+
+
+
+.tippy-box[data-theme~='tomato'] {
+  background-color: tomato;
+  color: yellow;
+}
+
+ 
