@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/vite-project/src/styles.css" rel="stylesheet">
+  <title>NBU Курс валют - зручний огляд валют</title>
+</head>
+
+<body class="p-6">
+  <script type="module" src="src/index.js"></script>
+
+  <div id="btn-box" class="flex gap-3 justify-center items-center h-screen">
+    <button id="table-btn" class="bg-greenlight p-2 rounded-sm">Таблиця</button>
+    <button id="text-btn" class="bg-pink-500 p-2 rounded-sm">Простий текст</button>
+  </div>
+  <div id="userError" class="text-red-600"></div>
+
+  <div id="input-wrapper" class="pb-4 hidden">
+    <input type="text" id="input-search" class="border" placeholder="Search">
+    <h2>Кількість валют: <span id="currency-count">0</span></h2>
+  </div>
+
+  <section>
+    <div id="text-box" class="hidden"><!-- Текст буде доданий сюди --></div>
+    <div id="table-box" class="hidden">
+      <div>
+        <h2>Кількість валют: <span id="currency-count">0</span></h2>
+        <table id="currencyTable" class="border w-full">
+          <thead>
+            
+          </thead>
+          <tbody>
+            <!-- Дані будуть додані сюди -->
+          </tbody>
+          
+        </table>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
