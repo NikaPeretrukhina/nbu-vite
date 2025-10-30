@@ -1,9 +1,9 @@
 export function renderCurrencyTable(animateCounterFn, data, tableHead, tableBody, tableBox){
     const headRow = document.createElement('tr');
-    headRow.innerHTML = `<th id="currency" class="border">Код валюти</th>
-    <th id="currency-name" class="border">Назва</th>
-    <th id="currency-value" class="border">Курс</th>
-    <th id="currency-data" class="border">Дата</th>`;
+    headRow.innerHTML = `<th id="currency" class="border">Currency Code</th>
+    <th id="currency-name" class="border">Currency Name</th>
+    <th id="currency-value" class="border">Currency</th>
+    <th id="currency-data" class="border">Date</th>`;
     tableHead.appendChild(headRow);
 
     tableBody.innerHTML = "";
@@ -20,7 +20,7 @@ export function renderCurrencyTable(animateCounterFn, data, tableHead, tableBody
         tableBody.appendChild(row);
     });
 
-    // Оновлюємо лічильник кількості валют
+    // Update the currency count
     animateCounterFn(data.length);
 }
  

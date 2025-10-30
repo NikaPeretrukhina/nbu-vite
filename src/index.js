@@ -6,7 +6,7 @@ import { animateCounter } from "./utils/AnimateCounter.js";
 import { fetchJSON } from "./utils/APILoad.js";
 import { initTooltips } from "./utils/TooltipInit.js";
 
-let data = await fetchJSON(currencyAPIUrl, userError) || [];//подивитись як зробити так щоб була показана тіки помилка а не хтмл і помилка
+let data = await fetchJSON(currencyAPIUrl, userError) || [];
 
 function setUpSearchInput(data, renderFn) {
   inputBox.classList.remove("hidden");

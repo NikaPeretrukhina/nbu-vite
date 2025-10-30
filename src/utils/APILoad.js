@@ -8,7 +8,7 @@ export async function fetchJSON(currencyAPIUrl, userError) {
         }
         return await response.json();
     }catch(error){
-        userError.innerHTML = `<p>Сталася помилка: ${error.message}</p>`;
+        userError.innerHTML = `<p>An error occurred: ${error.message}</p>`;
         console.log(errorText, error.message);
     }
 }
